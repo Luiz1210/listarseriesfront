@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import SeriesList from './pages/SeriesList';
 import AddSerie from './pages/AddSerie';
 import { ThemeProvider } from './context/ThemeContext';
+import './App.css'
 
 function App() {
   return (

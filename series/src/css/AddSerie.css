@@ -1,0 +1,79 @@
+.container-custom {
+    max-width: 1400px;
+    margin: 0 auto; 
+    padding: 0 15px; 
+  }
+
+  .add-serie-container {
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .add-serie-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .add-serie-container form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px; 
+  }
+  
+  .add-serie-container label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .add-serie-container input,
+  .add-serie-container textarea {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+  }
+  
+  .add-serie-container input[type="number"] {
+    -moz-appearance: textfield; /
+  }
+  
+  .add-serie-container input[type="date"] {
+    padding: 10px;
+  }
+  
+  .add-serie-container textarea {
+    resize: vertical; 
+    height: 150px; 
+  }
+  
+  .add-serie-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #C071B9; 
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; 
+  }
+  
+  .add-serie-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .add-serie-container button:hover:not(:disabled) {
+    background-color: #a05a8c; 
+  }
+  
+  .add-serie-container p.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }

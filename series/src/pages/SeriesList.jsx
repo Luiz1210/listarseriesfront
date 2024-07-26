@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
-import '../css/ListSerie.css'; // Importa o arquivo CSS personalizado
+import '../css/ListSerie.css'; 
 
 const SeriesList = () => {
   const [series, setSeries] = useState([]);
-  const [loading, setLoading] = useState(true); // Estado para carregamento
-  const [error, setError] = useState(null); // Estado para erros
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
     console.log('Fetching series data...');
-    fetch('http://localhost:8080/series')  // Certifique-se de que a URL da API está correta
+    fetch('http://localhost:8080/series') 
       .then(response => {
         console.log('Response received:', response);
         if (!response.ok) {
@@ -21,18 +21,18 @@ const SeriesList = () => {
       .then(data => {
         console.log('Data received:', data);
         setSeries(data);
-        setLoading(false); // Atualiza o estado de carregamento
+        setLoading(false); 
       })
       .catch(error => {
         console.error('Error fetching data:', error);
-        setError(error); // Atualiza o estado de erro
-        setLoading(false); // Atualiza o estado de carregamento
+        setError(error); 
+        setLoading(false); 
       });
   }, []);
 
   if (loading) {
     return (
-      <Container className="text-center">
+      <Container className="text-center container-custom">
         <Spinner animation="border" variant="primary" />
         <p>Loading series...</p>
       </Container>
@@ -41,7 +41,7 @@ const SeriesList = () => {
 
   if (error) {
     return (
-      <Container>
+      <Container className="container-custom">
         <Alert variant="danger">
           <Alert.Heading>Erro ao carregar dados</Alert.Heading>
           <p>{error.message}</p> {/* Exibe a mensagem de erro */}
@@ -51,7 +51,7 @@ const SeriesList = () => {
   }
 
   return (
-    <Container>
+    <Container className="container-custom">
       <Row>
         {series.map(serie => (
           <Col key={serie.id} sm={12} md={6} lg={4} className="mb-4">

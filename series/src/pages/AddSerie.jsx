@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Container } from 'react-bootstrap'; 
+import '../css/AddSerie.css';
 
 const AddSerie = () => {
   const [nome, setNome] = useState('');
@@ -36,71 +38,72 @@ const AddSerie = () => {
   };
 
   return (
-    <div>
-      <h1>Adicionar Nova Série</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nome</label>
-          <input
-            type="text"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Gênero</label>
-          <input
-            type="text"
-            value={genero}
-            onChange={(e) => setGenero(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Temporadas</label>
-          <input
-            type="number"
-            value={temporadas}
-            onChange={(e) => setTemporadas(Number(e.target.value))}
-            min="0"
-            required
-          />
-        </div>
-        <div>
-          <label>Resumo</label>
-          <textarea
-            value={resumo}
-            onChange={(e) => setResumo(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Foto URL</label>
-          <input
-            type="text"
-            value={foto}
-            onChange={(e) => setFoto(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Data de Criação</label>
-          <input
-            type="date"
-            value={dataCriacao}
-            onChange={(e) => setDataCriacao(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" disabled={loading}>
-          {loading ? 'Adicionando...' : 'Adicionar'}
-        </button>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-      </form>
-    </div>
+    <Container className="container-custom">
+      <div className="add-serie-container">
+        <h1>Adicionar Nova Série</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Nome</label>
+            <input
+              type="text"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label>Gênero</label>
+            <input
+              type="text"
+              value={genero}
+              onChange={(e) => setGenero(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label>Temporadas</label>
+            <input
+              type="number"
+              value={temporadas}
+              onChange={(e) => setTemporadas(Number(e.target.value))}
+              min="0"
+              required
+            />
+          </div>
+          <div>
+            <label>Resumo</label>
+            <textarea
+              value={resumo}
+              onChange={(e) => setResumo(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label>Foto URL</label>
+            <input
+              type="text"
+              value={foto}
+              onChange={(e) => setFoto(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label>Data de Criação</label>
+            <input
+              type="date"
+              value={dataCriacao}
+              onChange={(e) => setDataCriacao(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" disabled={loading}>
+            {loading ? 'Adicionando...' : 'Adicionar'}
+          </button>
+          {error && <p className="error">{error}</p>}
+        </form>
+      </div>
+    </Container>
   );
 };
 
 export default AddSerie;
-
